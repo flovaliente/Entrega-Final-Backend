@@ -1,0 +1,67 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+
+<nav class="navbar">
+    <div class="navbar-top">
+        <div class="navbar-brand">
+            <img src="/img/logo.png" alt="Caro Criado Logo" class="brand-logo">
+        </div>
+        <div class="navbar-icons">
+            <a href="/search" class="icon"><i class="fas fa-search"></i></a>
+            <a href="/account" class="icon"><i class="fas fa-user"></i></a>
+            <a href="/cart" class="icon"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </div>
+    <div class="navbar-bottom">
+        <ul class="navbar-menu">
+            <li><a href="/products">Shop</a></li>
+            <li><a href="/rebajas">Rebajas</a></li>
+            <li><a href="/precios-especiales">Precios Especiales</a></li>
+            <li><a href="/locales">Locales</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="navbar-bottom">
+    <h2 class="account-title">MI CUENTA</h2>
+    
+    <div class="navbar-menu">
+        <a href="#" class="active">MIS DATOS</a>
+        <a href="#">MIS DIRECCIONES</a>
+        <a href="#">MIS COMPRAS</a>
+        <a href="#">MIS DOCUMENTOS</a>
+        <a class="logout" href="/api/users/logout">LOGOUT</a>
+    </div>
+    <hr>
+    <div class="account-details">
+        <h3>Mis datos</h3>
+        <table class="details-table">
+            <tr>
+                <td><strong>Nombre</strong></td>
+                <td>{{user.firstName}}</td>
+            </tr>
+            <tr>
+                <td><strong>Apellido</strong></td>
+                <td>{{user.lastName}}</td>
+            </tr>
+            <tr>
+                <td><strong>Edad</strong></td>
+                <td>{{user.age}}</td>
+            </tr>
+            <tr>
+                <td><strong>E-mail</strong></td>
+                <td>{{user.email}}</td>
+            </tr>
+            <tr>
+                <td><strong>Rol</strong></td>
+                <td>{{user.role}}</td>
+            </tr>
+        </table>
+        <a role="button" class="edit-button">EDITAR</a>
+    </div>
+</div>
+
+
+

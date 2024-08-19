@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+
+<nav class="navbar">
+    <div class="navbar-top">
+        <div class="navbar-brand">
+            <img src="/img/logoNegro.png" alt="VALSAA logo" class="brand-logo">
+        </div>
+        <div class="navbar-icons">
+            <a href="/search" class="icon"><i class="fas fa-search"></i></a>
+            <a href="/user" class="icon"><i class="fas fa-user"></i></a>
+            <a href="/cart" class="icon"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const userId = "{{user._id}}";
+</script>
+
+<div class="shipping-container">
+    <h2>DATOS DE ENVÍO</h2>
+    <div class="shipping-options">
+        <button id="home-delivery" class="continue-btn active">
+            <i class="fa fa-truck"></i> ENVIARME A DOMICILIO
+        </button>
+        <button id="store-pickup" class="continue-btn">
+            <i class="fa fa-shopping-bag"></i> RETIRO EN SUCURSAL
+        </button>
+    </div>
+
+    <div id="delivery-form" class="delivery-form">
+        <label for="recipient">Destinatario</label>
+        <input type="text" id="recipient" value="{{user.firstName}} {{user.lastName}}" readonly>
+        
+        <label for="address">Dirección *</label>
+        <div id="address-info">
+            {{#if user.address}}
+                <input type="radio" name="address" id="address-radio" value="{{user.address}}" checked>
+                <label for="address-radio">{{user.address}}</label>
+                <a href="#" id="modify-address">Modificar</a>
+            {{else}}
+                <p>No tienes una dirección guardada</p>
+                <a href="#" id="add-address">Agregar dirección</a>
+            {{/if}}
+            
+        </div>
+        <p>Costo del envío: $ UYU 150</p>
+    </div>
+</div>
+
+<!-- Formulario emergente para agregar/modificar dirección -->
+<div id="address-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="modal-title">Agregar Dirección</h3>
+        <form id="address-form">
+            <label for="new-address">Nueva Dirección</label>
+            <input type="text" id="new-address" required>
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+</div>
+
+
+
+<div class="cart-actions">
+    <a href="/cart" class="back-btn">VOLVER</a>
+    <p>Total: $ UYU {{totalPrice}}</p>
+    <a href="/pago" class="continue-btn">CONTINUAR</a>
+</div>
+
+<script src="/js/envio.js"></script>

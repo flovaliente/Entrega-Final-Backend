@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+
+<nav class="navbar">
+    <div class="navbar-top">
+        <div class="navbar-brand">
+            <img src="/img/logoNegro.png" alt="VALSAA logo" class="brand-logo">
+        </div>
+        <div class="navbar-icons">
+            <a href="/search" class="icon"><i class="fas fa-search"></i></a>
+            <a href="/user" class="icon"><i class="fas fa-user"></i></a>
+            <a href="/cart" class="icon"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const cartId = "{{cart._id}}";
+</script>
+
+<div class="payment-container">
+    <h2>ELIGE LA FORMA DE PAGO</h2>
+    <p>{{user.firstName}}, puedes seleccionar la forma de pago de la lista de abajo:</a>.</p>
+    
+    <form id="payment-form">
+        <div class="payment-option">
+            <input type="radio" id="visa" name="payment-method" value="Visa">
+            <label for="visa">
+                <img src="/img/visa.png" alt="Visa"> Visa (débito y crédito)
+            </label>
+        </div>
+
+        <div class="payment-option">
+            <input type="radio" id="itau" name="payment-method" value="Itau">
+            <label for="itau">
+                <img src="/img/itau.png" alt="ITAU"> Itaú
+            </label>
+        </div>
+
+        <div class="payment-option">
+            <input type="radio" id="mastercard" name="payment-method" value="Mastercard">
+            <label for="mastercard">
+                <img src="/img/mastercard.png" alt="Mastercard"> Mastercard
+            </label>
+        </div>
+
+        <div class="payment-option">
+            <input type="radio" id="scotiabank" name="payment-method" value="Scotiabank">
+            <label for="scotiabank">
+                <img src="/img/scotiabank.png" alt="Scotiabank"> Scotiabank
+            </label>
+        </div>
+
+        <div class="payment-option">
+            <input type="radio" id="mercadopago" name="payment-method" value="Mercado Pago">
+            <label for="mercadopago">
+                <img src="/img/mercadopago.png" alt="Mercado Pago"> Mercado Pago
+            </label>
+        </div>
+        <button type="submit" class="continue-btn">FINALIZAR COMPRA</button>
+    </form>
+</div>
+
+<div class="cart-actions">
+    <a href="/envio" class="back-btn">VOLVER</a>
+    <p>Total: $ UYU {{totalPrice}}</p>
+    <a href=""></a>
+</div>
+
+<script src="/js/formaPago.js"></script>

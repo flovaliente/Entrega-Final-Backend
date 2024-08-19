@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+<nav class="navbar">
+    <div class="navbar-top">
+        <div class="navbar-brand">
+            <img src="/img/logo.png" alt="Caro Criado Logo" class="brand-logo">
+        </div>
+        <div class="navbar-icons">
+            <a href="/search" class="icon"><i class="fas fa-search"></i></a>
+            <a href="/user" class="icon"><i class="fas fa-user"></i></a>
+            <a href="/cart" class="icon"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </div>
+    <div class="navbar-bottom">
+        <ul class="navbar-menu">
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/rebajas">Rebajas</a></li>
+            <li><a href="/precios-especiales">Precios Especiales</a></li>
+            <li><a href="/locales">Locales</a></li>
+        </ul>
+    </div>
+</nav>
+<hr>
+
+<h2 class="text-center">Products</h2>
+<hr>
+
+<script>
+    const cartId = "{{cid}}";
+</script>
+      
+<div class="table-responsive">
+  {{#each products.docs}}
+    <div class="container-products" id="seccionprod">
+      <div class="products" id="{{this._id}}">
+        <img src="/img/products/{{this.thumbnails}}" class="product__img" width="400" height="430" >
+          <div class="product-description">
+            <h3 class="product__title">{{this.title}}</h3>
+            <span class="product-price">$ {{this.price}}</span>
+          </div>
+                      
+        <a href="#" id="cart-dataa" data-cart-id="{{cid}}" onclick="addToCart('{{this._id}}')" role="button" class="btn btn-secondary">Comprar</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
+      
+    
+
+<div class="pagination-container">
+    <p class="page-number">Página actual: {{page}}</p>
+    <div class="pagination-buttons">
+        <a href="{{prevLink}}" role="button" class="btn btn-secondary {{#unless hasPrevPage}} disabled {{/unless}}">Last Page</a>
+        <a href="{{nextLink}}" role="button" class="btn btn-secondary {{#unless hasNextPage}} disabled {{/unless}}">Next Page</a>
+    </div>
+</div>
+  
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/products.js"></script>

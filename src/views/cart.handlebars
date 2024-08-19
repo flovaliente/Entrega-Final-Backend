@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+
+<nav class="navbar">
+    <div class="navbar-top">
+        <div class="navbar-brand">
+            <img src="/img/logoNegro.png" alt="VALSAA logo" class="brand-logo">
+        </div>
+        <div class="navbar-icons">
+            <a href="/search" class="icon"><i class="fas fa-search"></i></a>
+            <a href="/user" class="icon"><i class="fas fa-user"></i></a>
+            <a href="/cart" class="icon"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const cartId = "{{cart._id}}";
+</script>
+
+<div class="cart-container">
+    <div class="cart-details">
+        <h3>DETALLE DEL PEDIDO</h3>
+        <p>{{user.email}} <a href="/change-account">Cambiar cuenta</a></p>
+        <ul class="cart-items">
+            {{#each cart.products}}
+            <li class="cart-item">
+                <img src="/img/products/{{this.productId.thumbnails}}" alt="{{this.productId.title}}" class="cart-item-img">
+                <div class="cart-item-info">
+                    <p>{{this.productId.title}}</p>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn" onclick="decrementarQuantity('{{this.productId._id}}')">-</button>
+                        <span>{{this.quantity}}</span>
+                        <button class="quantity-btn" onclick="incrementQuantity('{{this.productId._id}}')">+</button>
+                    </div>
+                    <p>$ {{this.productId.price}} UYU</p>
+                </div>
+                <button id="cart-data" class="remove-item-btn" onclick="removeFromCart('{{this.productId._id}}')">Eliminar</button>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+<div class="cart-actions">
+    <a href="/products" class="back-btn">SEGUIR COMPRANDO</a>
+    <p>Total: $ UYU {{totalPrice}}</p>
+    <a href="/envio" class="continue-btn">CONTINUAR</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/cart.js"></script>

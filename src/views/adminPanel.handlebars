@@ -1,0 +1,36 @@
+<div class="admin-panel-container">
+    <button class="delete-inactive-users-btn" type="button" onclick="confirmDelete()">Eliminar usuarios inactivos</button>
+    <div class="container">
+        <h1>Gestión de Usuarios</h1>
+        <div class="table-container">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each users}}
+                    <tr>
+                        <td>{{this.firstName}}</td>
+                        <td>{{this.email}}</td>
+                        <td>
+                            <p>Rol actual: <strong>{{this.role}}</strong></p>
+                            <button onclick="switchUserRole('{{this._id}}')">Cambiar Rol</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="logout-button">
+    <a href="/api/users/logout" class="btn-logout">LOGOUT</a>
+    </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/admin.js"></script>
