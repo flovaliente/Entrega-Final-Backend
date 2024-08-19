@@ -1,7 +1,10 @@
 import app from './app.js';
+import dotenv from 'dotenv';
 import { init } from './socket.js';
 
-const PORT = 8080;
+dotenv.config();
+
+const PORT = process.env.PORT || 8080;
 const serverHttp = app.listen(PORT, () =>{
   console.log(`Server running in http://localhost:${PORT}/`);
 });
